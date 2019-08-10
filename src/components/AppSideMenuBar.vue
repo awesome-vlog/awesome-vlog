@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="sideBarContainer">
     <div id="sideBar">
       <ul>
         <li id="profile">
@@ -28,21 +28,31 @@ ul {
   margin-top: 150px;
 }
 
+#sideBarContainer {
+  position: fixed;
+  margin-left: -300px;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  top: 0;
+  overflow: hidden;
+}
+
+#sideBar {
+  width: 300px;
+  height: 100%;
+  padding: 40px;
+  background-color: gray;
+  text-align: center;
+  position: fixed;
+}
+
 #profile {
   margin-bottom: 50px;
 }
 
 #profileName {
   font-size: 40px;
-}
-
-#sideBar {
-  float: left;
-  width: 300px;
-  height: 100%;
-  padding: 40px;
-  background-color: gray;
-  text-align: center;
 }
 
 #profileImg {

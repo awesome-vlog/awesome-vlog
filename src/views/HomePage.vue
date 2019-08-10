@@ -1,13 +1,11 @@
 <template>
   <div>
-    블로그
+    <a href="/blog">blog</a>
   </div>
 </template>
 
 <script>
 export default {
-  components: {}
+  name: "HomePage"
 };
 </script>
-
-<style scoped></style>
