@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 #container {
-  padding: 50px;
+  padding: 50px 80px 50px 80px;
 }
 
 #title {

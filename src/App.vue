@@ -33,6 +33,6 @@ export default {
 
 <style scoped>
 #wrapper {
-  padding-left: 300px;
+  padding-left: 270px;
 }
 </style>

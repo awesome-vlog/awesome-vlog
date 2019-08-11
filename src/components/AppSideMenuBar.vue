@@ -7,9 +7,23 @@
           <div id="profileName">vuelog</div>
           <div id="profileDesc">안녕하세요</div>
         </li>
-        <li>HOME</li>
-        <li>POST</li>
-        <li>CARTEGORY</li>
+
+        <!-- sideMenu -->
+        <v-list id="sideMenu" flat>
+          <v-list-item id="nonSubMenuTitle">Home</v-list-item>
+
+          <v-list-group value="true">
+            <template v-slot:activator>
+              <v-list-item-title id="subMenuTitle">Category</v-list-item-title>
+            </template>
+
+            <!-- subMenu -->
+            <v-list-item id="subMenu">ai</v-list-item>
+            <v-list-item id="subMenu">bigdata</v-list-item>
+          </v-list-group>
+
+          <v-list-item id="nonSubMenuTitle">Contact</v-list-item>
+        </v-list>
       </ul>
     </div>
   </div>
@@ -30,8 +44,8 @@ ul {
 
 #sideBarContainer {
   position: fixed;
-  margin-left: -300px;
-  width: 300px;
+  margin-left: -270px;
+  width: 270px;
   height: 100%;
   overflow-y: auto;
   top: 0;
@@ -39,7 +53,7 @@ ul {
 }
 
 #sideBar {
-  width: 300px;
+  width: 270px;
   height: 100%;
   padding: 40px;
   background-color: gray;
@@ -58,9 +72,21 @@ ul {
 #profileImg {
   background-image: url("../assets/img/profile.jpg");
   background-size: cover;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   margin: auto;
+}
+
+#subMenuTitle {
+  text-align: left !important;
+}
+
+#sideMenu {
+  background-color: rgb(255, 255, 255, 0);
+}
+
+#subMenu {
+  padding-left: 32px !important;
 }
 </style>
