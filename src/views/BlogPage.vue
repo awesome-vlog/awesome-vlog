@@ -2,7 +2,7 @@
   <div id="container">
     <!-- title -->
     <div id="title">
-      <h1>title</h1>
+      <h1>긴지라 눈에 구하기 청춘 내는 봄바람이다.</h1>
       <span id="titleDetail">cartegory</span>
       <span id="titleDetail">11 Aug 2019</span>
     </div>

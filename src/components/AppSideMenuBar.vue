@@ -2,26 +2,30 @@
   <div id="sideBarContainer">
     <div id="sideBar">
       <ul>
+        <!-- profile -->
         <li id="profile">
-          <div id="profileImg"></div>
+          <div id="profileAvatarImage"></div>
           <div id="profileName">vuelog</div>
           <div id="profileDesc">안녕하세요</div>
         </li>
 
         <!-- sideMenu -->
         <v-list id="sideMenu" flat>
+          <!-- sideMenuHome -->
           <v-list-item id="nonSubMenuTitle">Home</v-list-item>
 
+          <!-- sideMenuCartegory -->
           <v-list-group value="true">
             <template v-slot:activator>
               <v-list-item-title id="subMenuTitle">Category</v-list-item-title>
             </template>
 
-            <!-- subMenu -->
+            <!-- sideMenuCartegory-subMenu -->
             <v-list-item id="subMenu">ai</v-list-item>
             <v-list-item id="subMenu">bigdata</v-list-item>
           </v-list-group>
 
+          <!-- sideMenuContact -->
           <v-list-item id="nonSubMenuTitle">Contact</v-list-item>
         </v-list>
       </ul>
@@ -69,7 +73,7 @@ ul {
   font-size: 40px;
 }
 
-#profileImg {
+#profileAvatarImage {
   background-image: url("../assets/img/profile.jpg");
   background-size: cover;
   width: 170px;
