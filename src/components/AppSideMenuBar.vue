@@ -12,17 +12,28 @@
         <!-- sideMenu -->
         <v-list id="sideMenu" flat>
           <!-- sideMenuHome -->
-          <v-list-item id="nonSubMenuTitle">Home</v-list-item>
+          <v-list-item id="nonSubMenuTitle" @click.prevent="updateMenu('home')">
+            Home
+          </v-list-item>
 
           <!-- sideMenuCartegory -->
-          <v-list-group value="true">
+          <v-list-group @click.prevent="updateMenu('cartegory')">
             <template v-slot:activator>
-              <v-list-item-title id="subMenuTitle">Category</v-list-item-title>
+              <v-list-item-title id="subMenuTitle">
+                Category
+              </v-list-item-title>
             </template>
 
             <!-- sideMenuCartegory-subMenu -->
-            <v-list-item id="subMenu">ai</v-list-item>
-            <v-list-item id="subMenu">bigdata</v-list-item>
+            <div v-for="(item, index) in menuItems" :key="index">
+              <v-list-item
+                id="subMenu"
+                href="#"
+                @click.prevent="openSection(item)"
+              >
+                {{ item.name }}
+              </v-list-item>
+            </div>
           </v-list-group>
 
           <!-- sideMenuContact -->
@@ -34,8 +45,37 @@
 </template>
 
 <script>
+import menuData from "./support/menu-data";
+import kebabCase from "lodash/kebabCase";
+
 export default {
-  name: "SideMenuBar"
+  name: "SideMenuBar",
+  data() {
+    return {
+      contextSection: "",
+      menuItems: [],
+      menuData: menuData,
+      activeSubMenu: ""
+    };
+  },
+  methods: {
+    updateMenu(context) {
+      this.contextSection = context;
+      this.menuItems = this.menuData[context];
+
+      if (context === "home") {
+        this.$router.push("/");
+      }
+    },
+    openSection(item) {
+      this.activeSubMenu = item.name;
+      this.$router.push(this.getUrl(item));
+    },
+    getUrl(item) {
+      let sectionSlug = kebabCase(item.name);
+      return `${item.link}/${sectionSlug}`;
+    }
+  }
 };
 </script>
 
