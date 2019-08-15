@@ -137,16 +137,30 @@
           </v-carousel>
         </v-flex>
       </v-layout>
-      <v-layout>
-        <v-flex xs12 mt-12>
+      <v-layout row wrap v-for="project in projectInfo" :key="project.name">
+        <p class="SubjectTitle">Project</p>
+        <v-flex xs12>
           <!-- 이미지는 변수로 경로 가져온다고 가정하면 https://kadamon.tistory.com/24 클래스 바인딩으로 처리-->
-          <p class="SubjectTitle">Project</p>
           <div class="ProjectWeb">
             <p class="ProjectWeb_screen" />
             <div class="ProjectMobile v-flex hidden-xs-only">
               <div class="ProjectMobile_screen" />
             </div>
           </div>
+        </v-flex>
+        <v-flex xs12 sm6>
+          <v-layout row wrap>
+            <v-flex xs3>프로젝트명 : </v-flex>
+            <v-flex xs9>{{ project.name }}</v-flex>
+            <v-flex xs3>진행기간 : </v-flex>
+            <v-flex xs9>{{ project.duration }}</v-flex>
+          </v-layout>
+        </v-flex>
+        <v-flex xs12 sm6>
+          <v-layout row wrap>
+            <v-flex xx12>프로젝트 컨셉 : </v-flex>
+            <v-flex xs12>{{ project.description }}</v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-container>
@@ -157,7 +171,23 @@
 export default {
   data() {
     return {
-      rating: 4
+      rating: 4,
+      projectInfo: [
+        {
+          name: "SafeFood",
+          duration: "2019.02.07-2019.05.16",
+          tag: "#Java, #Web",
+          description:
+            "Lorem ipsum dolor sit amet, no nam oblique veritus. Communescaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputandovoluptatibus, vix an salutandi sententiae."
+        },
+        {
+          name: "개인 비서 프로그",
+          duration: "2019.07.02-2019.08.14",
+          tag: "#Java, #Web, #Firebase, #Api",
+          description:
+            "Lorem ipsum dolor sit amet, no nam oblique veritus. Communescaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputandovoluptatibus, vix an salutandi sententiae."
+        }
+      ]
     };
   }
 };
@@ -265,7 +295,7 @@ export default {
     left: 3%;
   }
   .ProjectMobile_screen {
-    left: 12%;
+    left: 11.7%;
   }
 }
 @media (min-width: 1264px) {
@@ -274,6 +304,7 @@ export default {
     left: 17%;
   }
   .ProjectMobile_screen {
+    left: 8.8%;
   }
 }
 </style>
