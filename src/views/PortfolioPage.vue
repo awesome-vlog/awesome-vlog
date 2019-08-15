@@ -63,7 +63,9 @@
                 <v-flex xs12 sm9>
                   Lorem ipsum
                 </v-flex>
-                <v-flex xs12 sm3 class="subtitle-1 text-right"> 201{{ 10 - n }}.12.31 </v-flex>
+                <v-flex xs12 sm3 class="subtitle-1 text-right">
+                  201{{ 10 - n }}.12.31
+                </v-flex>
               </v-card-title>
               <v-card-text>
                 Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
@@ -137,11 +139,14 @@
       </v-layout>
       <v-layout>
         <v-flex xs12 mt-12>
+          <!-- 이미지는 변수로 경로 가져온다고 가정하면 https://kadamon.tistory.com/24 클래스 바인딩으로 처리-->
           <p class="SubjectTitle">Project</p>
           <div class="ProjectWeb">
             <p class="ProjectWeb_screen" />
+            <div class="ProjectMobile v-flex hidden-xs-only">
+              <div class="ProjectMobile_screen" />
+            </div>
           </div>
-          <div class="ProjectMobile"></div>
         </v-flex>
       </v-layout>
     </v-container>
@@ -150,9 +155,11 @@
 
 <script>
 export default {
-  data: () => ({
-    rating: 4
-  })
+  data() {
+    return {
+      rating: 4
+    };
+  }
 };
 </script>
 
@@ -189,22 +196,84 @@ export default {
   background-image: url("../assets/portfolio/exam1.png");
   background-size: contain;
   background-position: center;
+  position: relative;
+  bottom: 5%;
   margin: 0 auto;
   width: 84%;
   min-height: 540px;
-  min-width: 268px;
   max-width: 500px;
 }
-@media (min-width: 500px) {
+.ProjectMobile {
+  z-index: 3;
+  background-image: url("../assets/portfolio/mobile2.png");
+  background-size: contain;
+  min-height: 130px;
+  height: 383px;
+  min-width: 230px;
+  position: relative;
+  top: -300px;
+  left: 10%;
+}
+.ProjectMobile_screen {
+  z-index: 4;
+  background-image: url("../assets/portfolio/exam2.png");
+  background-size: contain;
+  height: 220px;
+  width: 80px;
+  position: relative;
+  left: 8.9%;
+  top: 36.9%;
+  border-radius: 8px;
+}
+@media (max-width: 430px) {
   .ProjectWeb_screen {
     position: relative;
-    bottom: 5%;
+    bottom: 0%;
   }
 }
-@media (min-width: 501px) and (max-width:700px) {
+@media (min-width: 430px) and (max-width: 550px) {
+  .ProjectWeb_screen {
+    position: relative;
+    bottom: 1%;
+  }
+}
+@media (min-width: 551px) and (max-width: 700px) {
   .ProjectWeb_screen {
     position: relative;
     bottom: 3%;
+  }
+  .ProjectMobile {
+    top: -330px;
+    left: -7%;
+  }
+  .ProjectMobile_screen {
+    left: 18.6%;
+  }
+}
+@media (min-width: 701px) and (max-width: 958px) {
+  .ProjectMobile {
+    top: -330px;
+    left: 3%;
+  }
+  .ProjectMobile_screen {
+    left: 12.6%;
+  }
+}
+@media (min-width: 959px) and (max-width: 1263px) {
+  .ProjectMobile {
+    top: -335px;
+    left: 3%;
+  }
+  .ProjectMobile_screen {
+    left: 12%;
+  }
+}
+@media (min-width: 1264px) {
+  .ProjectMobile {
+    top: -330px;
+    left: 17%;
+  }
+  .ProjectMobile_screen {
   }
 }
 </style>
